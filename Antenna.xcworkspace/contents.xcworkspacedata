@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:Antenna"
+      name = "Antenna">
+      <FileRef
+         location = "group:Antenna.h">
+      </FileRef>
+      <FileRef
+         location = "group:Antenna.m">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Example/Antenna Example.xcodeproj">
+   </FileRef>
+</Workspace>
