@@ -16,7 +16,7 @@ When paired with [rack-http-logger](https://github.com/mattt/rack-http-logger), 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [[Antenna sharedLogger] addChannelWithURL:[NSURL URLWithString:@"http://example.com"] method:@"LOG"]  ;
+  [[Antenna sharedLogger] addChannelWithURL:[NSURL URLWithString:@"http://example.com"] method:@"LOG"];
   [[Antenna sharedLogger] startLoggingApplicationLifecycleNotifications];
   [[Antenna sharedLogger] startLoggingNotificationName:AntennaExampleNotification];
 
