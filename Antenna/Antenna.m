@@ -173,6 +173,11 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
         __strong __typeof(weakSelf)strongSelf = weakSelf;
 
         NSMutableDictionary *mutablePayload = [strongSelf.defaultPayload mutableCopy];
+        if (notification.userInfo) {
+            [notification.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                [mutablePayload setObject:object forKey:key];
+            }];
+        }
         [mutablePayload setObject:name forKey:@"notification"];
 
         return mutablePayload;
