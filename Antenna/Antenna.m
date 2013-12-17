@@ -22,8 +22,7 @@
 
 #import "Antenna.h"
 
-#import "AFHTTPClient.h"
-#import "AFHTTPRequestOperation.h"
+#import "AFURLRequestSerialization.h"
 
 #import <CoreData/CoreData.h>
 
@@ -42,7 +41,8 @@ static NSString * AntennaLogLineFromPayload(NSDictionary *payload) {
 
 @interface AntennaHTTPChannel : NSObject <AntennaChannel>
 - (id)initWithURL:(NSURL *)url
-           method:(NSString *)method;
+           method:(NSString *)method
+requestSerializer:(AFHTTPRequestSerializer <AFURLRequestSerialization> *)requestSerializer;
 @end
 
 #ifdef _COREDATADEFINES_H
@@ -109,7 +109,7 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 - (void)addChannelWithURL:(NSURL *)URL
                    method:(NSString *)method
 {
-    AntennaHTTPChannel *channel = [[AntennaHTTPChannel alloc] initWithURL:URL method:method];
+    AntennaHTTPChannel *channel = [[AntennaHTTPChannel alloc] initWithURL:URL method:method requestSerializer:[AFHTTPRequestSerializer serializer]];
     [self addChannel:channel];
 }
 
@@ -276,22 +276,27 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 #pragma mark -
 
 @interface AntennaHTTPChannel ()
-@property (readwrite, nonatomic, strong) AFHTTPClient *HTTPClient;
+@property (readwrite, nonatomic, strong) NSURL *URL;
 @property (readwrite, nonatomic, copy) NSString *method;
+@property (readwrite, nonatomic, strong) AFHTTPRequestSerializer <AFURLRequestSerialization> * requestSerializer;
+@property (readwrite, nonatomic, strong) NSOperationQueue *operationQueue;
 @end
 
 @implementation AntennaHTTPChannel
 
 - (id)initWithURL:(NSURL *)url
            method:(NSString *)method
+requestSerializer:(AFHTTPRequestSerializer <AFURLRequestSerialization> *)requestSerializer
 {
     self = [super init];
     if (!self) {
         return nil;
     }
 
-    self.HTTPClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     self.method = method;
+    self.URL = url;
+    self.operationQueue = [[NSOperationQueue alloc] init];
+    self.requestSerializer = requestSerializer;
 
     return self;
 }
@@ -299,10 +304,8 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 #pragma mark - AntennaChannel
 
 - (void)log:(NSDictionary *)payload {
-    NSURLRequest *request = [self.HTTPClient requestWithMethod:self.method path:nil parameters:payload];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:nil];
-    [self.HTTPClient enqueueHTTPRequestOperation:operation];
+    NSURLRequest *request = [self.requestSerializer requestWithMethod:self.method URLString:[self.URL absoluteString] parameters:payload];
+    [NSURLConnection sendAsynchronousRequest:request queue:self.operationQueue completionHandler:nil];
 }
 
 @end
