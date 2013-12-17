@@ -217,6 +217,12 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
     [self.notificationCenter removeObserver:self name:name object:nil];
 }
 
+- (void)stopLoggingNotificationName:(NSString *)name
+                             object:(id)object
+{
+    [self.notificationCenter removeObserver:self name:name object:object];
+}
+
 - (void)stopLoggingAllNotifications {
     [self.notificationCenter removeObserver:self];
 }
