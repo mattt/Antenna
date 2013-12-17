@@ -202,7 +202,7 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
         constructingPayLoadFromBlock:(NSDictionary * (^)(NSNotification *notification))block
 {
     __weak __typeof(self)weakSelf = self;
-    [[NSNotificationCenter defaultCenter] addObserverForName:name object:object queue:self.operationQueue usingBlock:^(NSNotification *notification) {
+    [self.notificationCenter addObserverForName:name object:object queue:self.operationQueue usingBlock:^(NSNotification *notification) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         NSDictionary *payload = nil;
         if (block) {
