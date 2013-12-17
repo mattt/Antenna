@@ -105,6 +105,11 @@
  */
 - (void)removeChannel:(id <AntennaChannel>)channel;
 
+/**
+ Removes all channels.
+ */
+- (void)removeAllChannels;
+
 ///==============
 /// @name Logging
 ///==============

@@ -140,6 +140,16 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
     self.channels = [NSArray arrayWithArray:mutableChannels];
 }
 
+- (void)removeAllChannels {
+    [self.channels enumerateObjectsUsingBlock:^(id channel, NSUInteger idx, BOOL *stop) {
+        if ([channel respondsToSelector:@selector(prepareForRemoval)]) {
+            [channel prepareForRemoval];
+        }
+    }];
+
+    self.channels = [NSArray array];
+}
+
 #pragma mark -
 
 - (void)log:(id)messageOrPayload {
