@@ -32,6 +32,11 @@
 /**
  
  */
+@property (readonly, nonatomic, strong) NSArray *channels;
+
+/**
+ 
+ */
 @property (readonly, nonatomic, strong) NSMutableDictionary *defaultPayload;
 
 /**
@@ -83,6 +88,11 @@
  
  */
 - (void)addChannel:(id <AntennaChannel>)channel;
+
+/**
+ 
+ */
+- (void)removeChannel:(id <AntennaChannel>)channel;
 
 ///==============
 /// @name Logging

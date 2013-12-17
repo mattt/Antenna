@@ -131,6 +131,12 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
     self.channels = [self.channels arrayByAddingObject:channel];
 }
 
+- (void)removeChannel:(id <AntennaChannel>)channel {
+    NSMutableArray *mutableChannels = [NSMutableArray arrayWithArray:self.channels];
+    [mutableChannels removeObject:channel];
+    self.channels = [NSArray arrayWithArray:mutableChannels];
+}
+
 #pragma mark -
 
 - (void)log:(id)messageOrPayload {
