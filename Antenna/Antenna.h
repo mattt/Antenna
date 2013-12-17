@@ -178,7 +178,6 @@
  */
 - (void)stopLoggingAllNotifications;
 
-
 @end
 
 #pragma mark -

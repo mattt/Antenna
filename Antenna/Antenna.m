@@ -63,9 +63,6 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 @end
 
 @implementation Antenna
-@synthesize channels = _channels;
-@synthesize defaultPayload = _defaultPayload;
-@synthesize notificationCenter = _notificationCenter;
 
 + (instancetype)sharedLogger {
     static id _sharedAntenna = nil;
@@ -246,7 +243,6 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 @end
 
 @implementation AntennaStreamChannel
-@synthesize outputStream = _outputStream;
 
 - (id)initWithOutputStream:(NSOutputStream *)outputStream {
     self = [super init];
@@ -282,8 +278,6 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 @end
 
 @implementation AntennaHTTPChannel
-@synthesize HTTPClient = _HTTPClient;
-@synthesize method = _method;
 
 - (id)initWithURL:(NSURL *)url
            method:(NSString *)method
@@ -319,10 +313,6 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 @end
 
 @implementation AntennaCoreDataChannel
-@synthesize entity = _entity;
-@synthesize context = _context;
-@synthesize messageAttribute = _messageAttribute;
-@synthesize timestampAttribute = _timestampAttribute;
 
 - (id)initWithEntity:(NSEntityDescription *)entity
     messageAttribute:(NSAttributeDescription *)messageAttribute
