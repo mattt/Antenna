@@ -29,7 +29,7 @@
 
 static NSString * AntennaLogLineFromPayload(NSDictionary *payload) {
     NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[payload count]];
-    [payload enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    [payload enumerateKeysAndObjectsUsingBlock:^(id key, id obj, __unused BOOL *stop) {
         [mutableComponents addObject:[NSString stringWithFormat:@"\"%@\"=\"%@\"", key, obj]];
     }];
 
@@ -138,7 +138,7 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 }
 
 - (void)removeAllChannels {
-    [self.channels enumerateObjectsUsingBlock:^(id channel, NSUInteger idx, BOOL *stop) {
+    [self.channels enumerateObjectsUsingBlock:^(id channel, __unused NSUInteger idx, __unused BOOL *stop) {
         if ([channel respondsToSelector:@selector(prepareForRemoval)]) {
             [channel prepareForRemoval];
         }
@@ -157,15 +157,18 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
         mutablePayload = [NSMutableDictionary dictionaryWithObject:messageOrPayload forKey:@"message"];
     }
 
-    [self.defaultPayload enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    [self.defaultPayload enumerateKeysAndObjectsUsingBlock:^(id key, id obj, __unused BOOL *stop) {
         if (obj && ![mutablePayload valueForKey:key]) {
             [mutablePayload setObject:obj forKey:key];
         }
     }];
 
-    [self.channels enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id channel, NSUInteger idx, BOOL *stop) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-selector-match"
+    [self.channels enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id channel, __unused NSUInteger idx, __unused BOOL *stop) {
         [channel log:mutablePayload];
     }];
+#pragma clang diagnostic pop
 }
 
 - (void)prepareForRemoval {
@@ -194,7 +197,7 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 
         NSMutableDictionary *mutablePayload = [strongSelf.defaultPayload mutableCopy];
         if (notification.userInfo) {
-            [notification.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            [notification.userInfo enumerateKeysAndObjectsUsingBlock:^(id key, __unused id obj, __unused BOOL *stop) {
                 [mutablePayload setObject:object forKey:key];
             }];
         }

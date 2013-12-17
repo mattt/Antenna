@@ -28,8 +28,8 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application
-didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(__unused UIApplication *)application
+didFinishLaunchingWithOptions:(__unused NSDictionary *)launchOptions
 {
     [[Antenna sharedLogger] addChannelWithURL:[NSURL URLWithString:@"http://localhost:5000"] method:@"LOG"];
     [[Antenna sharedLogger] startLoggingApplicationLifecycleNotifications];
