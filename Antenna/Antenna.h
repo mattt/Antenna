@@ -152,4 +152,11 @@
  */
 - (void)log:(NSDictionary *)payload;
 
+@optional
+
+/**
+ 
+ */
+- (void)prepareForRemoval;
+
 @end

@@ -133,6 +133,9 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 
 - (void)removeChannel:(id <AntennaChannel>)channel {
     NSMutableArray *mutableChannels = [NSMutableArray arrayWithArray:self.channels];
+    if ([channel respondsToSelector:@selector(prepareForRemoval)]) {
+        [channel prepareForRemoval];
+    }
     [mutableChannels removeObject:channel];
     self.channels = [NSArray arrayWithArray:mutableChannels];
 }
@@ -156,6 +159,10 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
     [self.channels enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id channel, NSUInteger idx, BOOL *stop) {
         [channel log:mutablePayload];
     }];
+}
+
+- (void)prepareForRemoval {
+    [self stopLoggingAllNotifications];
 }
 
 #pragma mark -
@@ -243,6 +250,10 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 - (void)log:(NSDictionary *)payload {
     NSData *data = [AntennaLogLineFromPayload(payload) dataUsingEncoding:NSUTF8StringEncoding];
     [self.outputStream write:[data bytes] maxLength:[data length]];
+}
+
+- (void)prepareForRemoval {
+    [self.outputStream close];
 }
 
 @end
