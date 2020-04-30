@@ -53,9 +53,9 @@
 		F8B5ECD016CA75EB00CB3328 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F8B5ECD216CA75EB00CB3328 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F8B5ECD316CA75EB00CB3328 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F8B5ECD616CA75EB00CB3328 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		F8B5ECE016CA76B800CB3328 /* Antenna.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Antenna.h; path = ../Antenna/Antenna.h; sourceTree = "<group>"; };
 		F8B5ECE116CA76B800CB3328 /* Antenna.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Antenna.m; path = ../Antenna/Antenna.m; sourceTree = "<group>"; };
+		F8C09A9B245B3299004B29B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ViewController.xib; sourceTree = "<group>"; };
 		F8C09A9C245B32CA004B29B1 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		F8FAF8E5186118470028D799 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		F8FAF8E6186118470028D799 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -233,10 +233,11 @@
 			};
 			buildConfigurationList = F8B5ECB216CA75EB00CB3328 /* Build configuration list for PBXProject "Antenna Example" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = F8B5ECAE16CA75EB00CB3328;
 			productRefGroup = F8B5ECB816CA75EB00CB3328 /* Products */;
@@ -298,7 +299,7 @@
 		F8B5ECD516CA75EB00CB3328 /* ViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F8B5ECD616CA75EB00CB3328 /* en */,
+				F8C09A9B245B3299004B29B1 /* Base */,
 			);
 			name = ViewController.xib;
 			sourceTree = "<group>";
