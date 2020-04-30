@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F83F36DA172863E000FB13E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83F36D9172863E000FB13E3 /* CoreData.framework */; };
-		F85D33D617429D6900B446F5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85D33D517429D6900B446F5 /* MobileCoreServices.framework */; };
 		F85D33D817429D6E00B446F5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85D33D717429D6E00B446F5 /* SystemConfiguration.framework */; };
 		F8B5ECBB16CA75EB00CB3328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B5ECBA16CA75EB00CB3328 /* UIKit.framework */; };
 		F8B5ECBD16CA75EB00CB3328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B5ECBC16CA75EB00CB3328 /* Foundation.framework */; };
@@ -22,6 +21,7 @@
 		F8B5ECDE16CA766F00CB3328 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B5ECC616CA75EB00CB3328 /* main.m */; };
 		F8B5ECDF16CA767100CB3328 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B5ECD316CA75EB00CB3328 /* ViewController.m */; };
 		F8B5ECE216CA76B800CB3328 /* Antenna.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B5ECE116CA76B800CB3328 /* Antenna.m */; };
+		F8C09A9D245B32CA004B29B1 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C09A9C245B32CA004B29B1 /* CoreServices.framework */; };
 		F8FAF8F8186118470028D799 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FAF8E6186118470028D799 /* AFHTTPRequestOperation.m */; };
 		F8FAF8F9186118470028D799 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FAF8E8186118470028D799 /* AFHTTPRequestOperationManager.m */; };
 		F8FAF8FA186118470028D799 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FAF8EA186118470028D799 /* AFHTTPSessionManager.m */; };
@@ -56,6 +56,7 @@
 		F8B5ECD616CA75EB00CB3328 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		F8B5ECE016CA76B800CB3328 /* Antenna.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Antenna.h; path = ../Antenna/Antenna.h; sourceTree = "<group>"; };
 		F8B5ECE116CA76B800CB3328 /* Antenna.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Antenna.m; path = ../Antenna/Antenna.m; sourceTree = "<group>"; };
+		F8C09A9C245B32CA004B29B1 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		F8FAF8E5186118470028D799 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		F8FAF8E6186118470028D799 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		F8FAF8E7186118470028D799 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -85,10 +86,10 @@
 			files = (
 				F8FAF902186118580028D799 /* Security.framework in Frameworks */,
 				F85D33D817429D6E00B446F5 /* SystemConfiguration.framework in Frameworks */,
-				F85D33D617429D6900B446F5 /* MobileCoreServices.framework in Frameworks */,
 				F83F36DA172863E000FB13E3 /* CoreData.framework in Frameworks */,
 				F8B5ECBB16CA75EB00CB3328 /* UIKit.framework in Frameworks */,
 				F8B5ECBD16CA75EB00CB3328 /* Foundation.framework in Frameworks */,
+				F8C09A9D245B32CA004B29B1 /* CoreServices.framework in Frameworks */,
 				F8B5ECBF16CA75EB00CB3328 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +118,7 @@
 		F8B5ECB916CA75EB00CB3328 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8C09A9C245B32CA004B29B1 /* CoreServices.framework */,
 				F8FAF901186118580028D799 /* Security.framework */,
 				F85D33D717429D6E00B446F5 /* SystemConfiguration.framework */,
 				F85D33D517429D6900B446F5 /* MobileCoreServices.framework */,
