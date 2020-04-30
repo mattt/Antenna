@@ -309,7 +309,7 @@ requestSerializer:(AFHTTPRequestSerializer <AFURLRequestSerialization> *)request
 
 - (void)log:(NSDictionary *)payload {
     NSURLRequest *request = [self.requestSerializer requestWithMethod:self.method URLString:[self.URL absoluteString] parameters:payload error:nil];
-    [NSURLConnection sendAsynchronousRequest:request queue:self.operationQueue completionHandler:nil];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request] resume];
 }
 
 @end
