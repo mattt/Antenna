@@ -1,14 +1,24 @@
 # Antenna
-**Extensible Remote Logging for iOS**
 
-Visibility into how users interact with your app is invaluable. This information can go a long way to inform user interaction design, and improve business conversion rates. Antenna provides this crucial level of visibility in a way that captures majority usage information by default, but also allows you to tune everything according to your app's particular needs.
+Visibility into how users interact with your app is invaluable.
+This information can go a long way to inform user interaction design,
+and improve business conversion rates.
 
-Antenna asynchronously logs notifications to any number of web services, files, or Core Data entities. Each logging message comes with global state information, including a unique identifier for the device, along with any additional data from the notification itself.
+Antenna provides this crucial level of visibility
+in a way that captures majority usage information by default, 
+but also allows you to tune everything according to your app's particular needs.
 
-When paired with [rack-http-logger](https://github.com/mattt/rack-http-logger), iOS system events can be streamed directly into your web application logs for integrated analysis.
+Antenna asynchronously logs notifications to any number of 
+web services, files, or Core Data entities. 
+Each logging message comes with global state information, 
+including a unique identifier for the device, 
+along with any additional data from the notification itself.
 
-> This project is part of a series of open source libraries covering the mission-critical aspects of an iOS app's infrastructure. Be sure to check out its sister projects: [GroundControl](https://github.com/mattt/GroundControl), [SkyLab](https://github.com/mattt/SkyLab), [CargoBay](https://github.com/mattt/CargoBay), [houston](https://github.com/mattt/houston), and [Orbiter](https://github.com/mattt/Orbiter).
+When paired with [rack-http-logger](https://github.com/mattt/rack-http-logger), 
+iOS system events can be streamed directly into your web application logs 
+for integrated analysis.
 
+## Usage
 
 ### AppDelegate.m
 
@@ -24,7 +34,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 ```
 
-### Contact
+## Contact
 
 Mattt ([@mattt](https://twitter.com/mattt))
 
