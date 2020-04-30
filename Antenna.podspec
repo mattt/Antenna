@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Extensible Remote Logging for iOS.'
   s.homepage = 'https://github.com/mattt/Antenna'
   s.social_media_url = 'https://twitter.com/mattt'
-  s.authors  = { 'Mattt Thompson' => 'm@mattt.me' }
+  s.authors  = { 'Mattt' => 'mattt@me.com' }
   s.source   = { :git => 'https://github.com/mattt/Antenna.git', :tag => '2.0.1' }
   s.source_files = 'Antenna'
   s.requires_arc = true
