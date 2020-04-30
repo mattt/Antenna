@@ -344,7 +344,7 @@ inManagedObjectContext:(NSManagedObjectContext *)context
 
 - (void)log:(NSDictionary *)payload {
     [self.context performBlock:^{
-        NSManagedObjectContext *entry = [NSEntityDescription insertNewObjectForEntityForName:self.entity.name inManagedObjectContext:self.context];
+        NSManagedObject *entry = [NSEntityDescription insertNewObjectForEntityForName:self.entity.name inManagedObjectContext:self.context];
         [entry setValue:AntennaLogLineFromPayload(payload) forKey:self.messageAttribute.name];
         [entry setValue:[NSDate date] forKey:self.timestampAttribute.name];
 
