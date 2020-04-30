@@ -165,12 +165,12 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
         }
     }];
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wstrict-selector-match"
     [self.channels enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id channel, __unused NSUInteger idx, __unused BOOL *stop) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wstrict-selector-match"
         [channel log:mutablePayload];
+        #pragma clang diagnostic pop
     }];
-#pragma clang diagnostic pop
 }
 
 - (void)prepareForRemoval {
