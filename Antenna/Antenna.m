@@ -26,6 +26,8 @@
 
 #import <CoreData/CoreData.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 static NSString * AntennaLogLineFromPayload(NSDictionary *payload) {
     NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[payload count]];
     [payload enumerateKeysAndObjectsUsingBlock:^(id key, id obj, __unused BOOL *stop) {
@@ -189,7 +191,7 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 }
 
 - (void)startLoggingNotificationName:(NSString *)name
-                              object:(id)object
+                              object:(_Nullable id)object
 {
     __weak __typeof(self)weakSelf = self;
     [self startLoggingNotificationName:name object:object constructingPayLoadFromBlock:^NSDictionary *(NSNotification *notification) {
@@ -210,8 +212,8 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 }
 
 - (void)startLoggingNotificationName:(NSString *)name
-                              object:(id)object
-        constructingPayLoadFromBlock:(NSDictionary * (^)(NSNotification *notification))block
+                              object:(_Nullable id)object
+        constructingPayLoadFromBlock:(NSDictionary * _Nullable (^)(NSNotification *notification))block
 {
     __weak __typeof(self)weakSelf = self;
     [self.notificationCenter addObserverForName:name object:object queue:self.operationQueue usingBlock:^(NSNotification *notification) {
@@ -230,7 +232,7 @@ inManagedObjectContext:(NSManagedObjectContext *)context;
 }
 
 - (void)stopLoggingNotificationName:(NSString *)name
-                             object:(id)object
+                             object:(_Nullable id)object
 {
     [self.notificationCenter removeObserver:self name:name object:object];
 }
@@ -358,3 +360,5 @@ inManagedObjectContext:(NSManagedObjectContext *)context
 @end
 
 #endif
+
+NS_ASSUME_NONNULL_END

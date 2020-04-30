@@ -22,6 +22,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol AntennaChannel;
 
 /**
@@ -144,7 +146,7 @@
  @param object The notification object.
  */
 - (void)startLoggingNotificationName:(NSString *)name
-                              object:(id)object;
+                              object:(_Nullable id)object;
 
 /**
  Start listening for and logging notifications with a name and object, constructing the payload for the log message from the notification using the specified block.
@@ -154,8 +156,8 @@
  @param block A block used to construct the payload to log from a given notification. The returns the payload and takes a single argument: the received notification to log.
  */
 - (void)startLoggingNotificationName:(NSString *)name
-                              object:(id)object
-        constructingPayLoadFromBlock:(NSDictionary * (^)(NSNotification *notification))block;
+                              object:(_Nullable id)object
+        constructingPayLoadFromBlock:(NSDictionary * _Nullable (^)(NSNotification *notification))block;
 
 /**
  Stop listening for and logging all notifications with the specified name.
@@ -171,7 +173,7 @@
  @param object The notification object.
  */
 - (void)stopLoggingNotificationName:(NSString *)name
-                             object:(id)object;
+                             object:(_Nullable id)object;
 
 /**
  Stop listening for and logging all notifications.
@@ -204,3 +206,5 @@
 - (void)prepareForRemoval;
 
 @end
+
+NS_ASSUME_NONNULL_END
